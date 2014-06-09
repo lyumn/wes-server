@@ -740,7 +740,7 @@ void game::process_message(simple_wml::document& data, const player_map::iterato
 
 bool game::is_legal_command(const simple_wml::node& command, bool is_player) {
 	// Only single commands allowed.
-	if (!command.one_child()) return false;
+	//if (!command.one_child()) return false;
 	// Chatting is never an illegal command.
 	if (command.child("speak")) return true;
 	if (is_player && command.child("global_variable")) {
@@ -757,6 +757,7 @@ bool game::is_legal_command(const simple_wml::node& command, bool is_player) {
 		|| command.child("rename")
 		|| command.child("countdown_update")
 		|| command.child("global_variable")
+		||command.child("prefix_unit")  
 		))
 	{
 		return true;
